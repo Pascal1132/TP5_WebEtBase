@@ -96,12 +96,7 @@ class ControleurAdminreservations extends ControleurAdmin
         $nouvelleReservation['dateArrivee'] = $this->requete->getParametre('dateArrivee');
         $nouvelleReservation['utilisateur'] = $this->requete->getParametre('utilisateur');
         $nouvelleReservation['chambre'] = $this->requete->getParametre('chambre');
-        if($this->reservation->estDateValide(date_create($nouvelleReservation['dateDepart']), date_create($nouvelleReservation['dateArrivee']))){
-            if($this->chambre->estNoChambrePresent($nouvelleReservation['chambre'])){
-
-
-                if($this->utilisateur->estUtilisateurValide($nouvelleReservation['utilisateur'])){
-
+        
 
                     try {
                         $this->reservation->insertionReservation($nouvelleReservation);
@@ -109,15 +104,6 @@ class ControleurAdminreservations extends ControleurAdmin
                     } catch (Exception $e) {
                         die('Erreur : ' . $e->getMessage());
                     }
-                }else{
-                    $msgInfo = "utilisateurErr";
-                }
-            }else{
-                $msgInfo = "chambreErr";
-            }
-        }else{
-            $msgInfo = "dateErr";
-        }
-        $this->executerAction('index');
-    }
-}
+                
+    $this->executerAction('index');
+}}

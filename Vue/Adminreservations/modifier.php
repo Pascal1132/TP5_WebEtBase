@@ -2,7 +2,7 @@
 
 
 <h3 style="color:var(--couleurOrange);font-weight: bold;"><?php if($msgCode!=="dateErr" && $msgCode!=="chambreErr" && $msgCode !=="utilisateurErr")echo $this->nettoyer($msg);?></h3>
-<form action="Reservations/miseAJour" method="post" class="formulaire" id="formulaireReservation">
+<form action="Adminreservations/miseAJour" method="post" class="formulaire" id="formulaireReservation">
     <h2>Modifier une réservation</h2>
     <fieldset>
         <legend>Dates de réservation</legend>
