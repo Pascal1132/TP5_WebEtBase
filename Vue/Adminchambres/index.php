@@ -1,15 +1,42 @@
-<?php $this->titre = 'Gérer les chambres'; ?>
+<?php $titre = 'Gérer les chambres'; ?>
 
 
 <h3 style="color:var(--couleurOrange);font-weight: bold;"><?php if($msgCode!=="litsErr" && $msgCode!=="courrielErr" && $msgCode!=="chambreErr" && $msgCode !=="typeErr")echo $msg;?></h3>
+<form action="Adminchambres/ajouter" method="post" class="formulaire" >
+    <h2>Nouvelle Chambre</h2>
+    <ul>
+        <li><label for="numero" style="float: left;">Numéro de la chambre:</label>
+            <input class="entreeTexteNouvChambre" id="numero" name="numero" type="text"/></li>
+        <span style="color:black;font-weight: bold;"><?php if($msgCode=="chambreErr")echo $msg;?></span>
+        <li><label for="lits" style="float: left;">Nombre de lits:</label>
+            <input class="entreeTexteNouvChambre" id="lits" name="lits" type="text"/></li>
+        <span style="color:black;font-weight: bold;"><?php if($msgCode=="litsErr")echo $msg;?></span>
+        <li>
+            <label for="type" style="float: left;">Type de la chambre:</label>
+            <input class="entreeTexteNouvChambre ui-autocomplete-input" id="type" name="type" type="text"/>
+        </li>
+        <span style="color:black;font-weight: bold;"><?php if($msgCode=="typeErr")echo $msg;?></span>
+        <li><label for="courriel" style="float:left;">Courriel de l'administrateur:</label><input class="entreeTexteNouvChambre" id="courriel" name="courriel" type="email"/></li>
+        <span style="color:black;font-weight: bold;"><?php if($msgCode=="courrielErr")echo $msg;?></span>
 
-<h1>Chambres</h1>
+
+    </ul>
+
+
+
+
+
+    <input type="submit" value="Ajouter" />
+    <a style="float:left;margin-top: 10px;" href='Adminreservations'>Retour à l'accueil</a>
+    <br>
+    </p>
+</form>
 <div class="partie">
-    <h2>Liste des enregistrements dans la table:</h2>
+    <h2>Liste des chambres:</h2>
     <table class="listeEnregistrement" align="center">
         <tr >
 
-
+            <th>Effacer</th>
             <th>Numéro</th>
 
             <th>Nombre de lits</th>
@@ -19,7 +46,7 @@
             ?>
             <tr>
 
-
+                <td><a onclick="afficher(<?=$ligne['numeroChambre']?>)">[effacer]</a></td>
                 <td><?=$ligne['numeroChambre']?></td>
                 <td><?=$ligne['nombreLits']?></td>
                 <td><?=$ligne['typeChambre_fk']?></td>
@@ -29,7 +56,6 @@
 
         ?>
     </table>
-    <a style="margin-top: 10px;" href='Reservations'>Retour à l'accueil</a>
 </div>
 <style>
 
@@ -57,7 +83,7 @@
     var span = document.getElementsByClassName("close")[0];
     function afficher(noChambre) {
         modal.style.display = "block";
-        $('#ouiSupprimerBouton').attr('href', 'chambres/supprimer/'+noChambre);
+        $('#ouiSupprimerBouton').attr('href', 'adminchambres/supprimer/'+noChambre);
     }
     function masquer() {
         modal.style.display = "none";

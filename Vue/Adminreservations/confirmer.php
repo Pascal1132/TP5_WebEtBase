@@ -1,4 +1,4 @@
-<?php $titre = 'Suppression'; ?>
+<?php $this->titre = 'Suppression'; ?>
 
     <div class="partie">
 <?php if($resultat[0]>0){

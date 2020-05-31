@@ -109,11 +109,19 @@ a,input[type=submit],input[type=reset]{
 	transition-property: background;
 
 }
+.connexionPartie{
+	margin: 0px;
+	padding: 0px;
+	color: #305A72;
+
+
+
+}
 a:hover,input[type=submit]:hover,input[type=reset]:hover{
 	background-color: var(--couleurOrange);
 	color: var(--couleurGris);
 	border:1px solid var(--couleurGris);
-	box-shadow: outset  0 10px 1em black;
+	box-shadow: outset 0 10px 1em black;
 }
 a:active,input[type=submit]:active,input[type=reset]:active{
 	background-color: var(--couleurOrange);
@@ -136,6 +144,12 @@ a:active,input[type=submit]:active,input[type=reset]:active{
 	width: 70%;
 	max-width: 650px;
 	min-width: 300px;
+}
+.enTete{
+	margin-top: 0px;
+	background-color: var(--couleurBleuMauve);
+	color:var(--couleurDeFond);
+
 }
 
 /*Apparence et animation des formulaires*/
@@ -269,10 +283,4 @@ legend {
 	#boutonOUI:active{
 		background-color: #28464B;
 	}
-	#titreGestion{
-		margin-top: 0px;
-		
 
-		background-color: var(--couleurBleuMauve);
-		color:var(--couleurDeFond);
-	}
